@@ -1,98 +1,110 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-  }
-  header {
-    background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') no-repeat center center/cover;
-    height: 100vh;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 70, 140, 0.5);
-  }
-  .content {
-    position: relative;
-    z-index: 1;
-  }
-  .btn-container {
-    margin-top: 20px;
-  }
-  .btn {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: 2px solid white;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background 0.3s, color 0.3s;
-  }
-  .btn.primary {
-    background: #58aaff;
-    border-color: #58aaff;
-  }
-  .btn:hover {
-    background: white;
-    color: #333;
-  }
-  .section {
-    padding: 60px 20px;
-    text-align: center;
-  }
-  .section h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  .section p {
-    color: #777;
-  }
-  .features {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-  .feature {
-    width: 200px;
-    padding: 20px;
-    margin: 10px;
-    background: #f5f5f5;
-    border-radius: 10px;
-  }
-  .feature img {
-    width: 50px;
-    height: 50px;
-  }
-  .feature h3 {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  .nav {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .hamburger {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-  }
+    header {
+      background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 70, 140, 0.5);
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    .title {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    .subtitle {
+      color: #58aaff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn.primary {
+      background: #58aaff;
+      border: none;
+      color: white;
+    }
+    .btn.outline {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+    }
+    .btn.outline:hover {
+      background: white;
+      color: #333;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .section p {
+      color: #777;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .feature {
+      width: 200px;
+      padding: 20px;
+      margin: 10px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    .feature img {
+      width: 50px;
+      height: 50px;
+    }
+    .feature h3 {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
