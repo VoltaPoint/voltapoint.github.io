@@ -1,15 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>SMART GREEN HOUSE AND AUTOMATIC IRRIGATION SYSTEM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velocity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 70, 140, 0.5);
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    .title {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    .subtitle {
+      color: #58aaff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .section p {
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      gap: 20px;
+    }
+    .feature {
+      width: 260px;
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px #e1e8f0;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .feature:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .feature-icon {
+      background: #58aaff;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #e1e8f0;
+    }
+    .feature-icon img {
+      width: 40px;
+      height: 40px;
+    }
+    .feature h3 {
+      margin-top: 0;
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #4a4a4a;
+    }
+    .feature p {
+      font-size: 14px;
+      color: #657786;
+      line-height: 1.6;
+    }
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
+    .services {
+      background-color: #1a1f21;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .services h2 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    .services p.subtitle {
+      color: #aaa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .services-content {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .service-box {
+      max-width: 400px;
+      text-align: center;
+      flex: 1 1 100%;
+    }
+    .service-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .service-box h3 {
+      text-transform: uppercase;
+      margin: 20px 0 10px;
+      letter-spacing: 2px;
+    }
+    .service-box p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
+    @media (min-width: 600px) {
+      .service-box {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 32px;
+      }
+      .feature {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
   <header>
     <div class="overlay"></div>
     <div class="nav">VELOCITY</div>
@@ -17,10 +191,6 @@
     <div class="content">
       <h1 class="title">THIS IS VELOCITY</h1>
       <p class="subtitle">A FREE RESPONSIVE TEMPLATE BY WEBFLOW</p>
-      <div class="btn-container">
-        <button class="btn primary">SIGN UP</button>
-        <button class="btn outline">LEARN MORE</button>
-      </div>
     </div>
   </header>
 
@@ -29,16 +199,42 @@
     <p>THIS IS SOME TEXT INSIDE OF A DIV BLOCK.</p>
     <div class="features">
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/50/000000/clock.png" alt="graphic">
-        <h3>GRAPHIC</h3>
+        <div class="feature-icon">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/clock.png" alt="Graphic Design">
+        </div>
+        <h3>GRAPHIC DESIGN</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/50/000000/share.png" alt="awesome">
-        <h3>AWESOME</h3>
+        <div class="feature-icon">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/share.png" alt="Awesome Code">
+        </div>
+        <h3>AWESOME CODE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/50/000000/email-open.png" alt="free">
-        <h3>FREE</h3>
+        <div class="feature-icon">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/email-open.png" alt="Free Template">
+        </div>
+        <h3>FREE TEMPLATE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>SERVICES</h2>
+    <p class="subtitle">THIS IS SOME TEXT INSIDE OF A DIV BLOCK.</p>
+    <div class="services-content">
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Services One">
+        <h3>SERVICES ONE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius.</p>
+      </div>
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Services Two">
+        <h3>SERVICES TWO</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius.</p>
       </div>
     </div>
   </section>
