@@ -4,255 +4,668 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>voltapoint</title>
+ <link rel="stylesheet" href="//style.css//">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      font-size: 16px;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-      text-shadow: 2px 2px black;
-    }
-    nav {
-      position: absolute;
-      top: 1.25rem;
-      right: 2.5rem;
-      font-size: 0.875rem;
-     
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 16px;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  background: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  text-shadow: 2px 2px black;
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+nav {
+  position: absolute;
+  top: 1.25rem;
+  right: 2.5rem;
+  font-size: 0.875rem;
+ 
 
+}
+nav a:hover {
+  color: white;
+  text-decoration: none;
+}
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  /*backdrop-filter: blur(2px); /* blur effect */
+}
+.hero {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 4rem); /* Increased size for the header */
+  font-weight: 600; /* Bold weight for impact */
+  margin-bottom: 10px;
+  backdrop-filter: blur(4px); /* blur effect */
+  border-radius: 20px;
+}
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem); /* Slightly bigger and easier to read */
+  font-weight: 400; /* Regular weight for the subheading */
+  margin-bottom: 20px;
+  color: white;
+  max-width: 600px; /* Limit the width for better text readability */
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(2px); /* blur effect */
+  padding: 10px;
+  border-radius: 20px;
+  text-shadow: 2px 2px black;
+}
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  background: white;
+}
+.section h2 {
+  letter-spacing: 0.125rem;
+  color: #444;
+  margin-bottom: 0.625rem;
+}
+.section p {
+  color: #aaa;
+  margin-bottom: 2.5rem;
+}
+.section ul {
+    text-align: center;
+    text-decoration: none;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.875rem;
+  flex-wrap: wrap;
+  height: auto;
+}
+.card {
+  width: auto;
+  max-width: 30rem;
+  padding: 1.75rem;
+  border: 2px solid #eee;
+  border-radius: 0.375rem;
+  transition: transform 0.3s ease;
+  box-shadow: 10px 10px 10px rgb(150, 147, 147);
+}
+.card:hover {
+  transform: translateY(-0.3125rem);
+}
+.card-icon {
+  font-size: 2rem;
+  display: flex;
+  width: auto;
+  height: auto;
+  margin-bottom: 1.25rem;
+  color: #339cff;
+  margin-right: 20px;
+  align-items: center;/*center vertically*/
+  justify-content: center;/*center horizontally*/
+  overflow: hidden;
+  border-radius: 8px;
+}
+.card h3 {
+  font-size: 1rem;
+  letter-spacing: 0.0625rem;
+  margin-bottom: 0.625rem;
+}
+.card p {
+  font-size: 0.875rem;
+  color: #777;
+}
+.objectives {
+  padding:10px;
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://plus.unsplash.com/premium_photo-1661879923091-a228184f8bfb?q=80&w=2155&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+.objectives h2{
+  text-align: center;
+  letter-spacing: 0.125rem;
+  padding: 10px;
+  color: #444;
+}
+.objectives p{
+  font-size: 1rem;
+  color:  rgb(150, 147, 147);
+  text-align: center;
+}
+.objective{
+  align-items: left;
+  padding: 50px;
+  justify-content: center;
+  border: 1px solid #979797;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgb(77, 76, 76);
+}
+.detail{
+  justify-content: right;
+  gap: 30px;
+  width: 1000px;
+
+}
+.details{
+  padding:50px;
+  color: #000000;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #979797;
+}
+.details p{
+  color: black;
+}
+.system{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 20px 0;
+}
+.system h2{
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 40px;
+}
+.systems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+
+}
+.Results {
+    padding: 2rem;
+    text-align: center;
+}
+
+.Results h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.Results p {
+    margin-bottom: 1.5rem;
+}
+
+.Results .results-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.Results .results-grid div {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.Results .results-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.moments{
+    text-align: center;
+    padding: 20px;
+    letter-spacing: 2px;
+}
+.videos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+}
+.diagrams{
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(77, 76, 76);
+    flex: 1 1 300px;
+    min-width: 250px;
+    max-width: 400px;
+}
+.diagrams h3{
+    padding: 10px;
+}
+.diagrams img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 10px;
+
+}
+.component{
+  padding: 100px;
+  padding-bottom: 200px;
+  background-image:linear-gradient(white,rgba(255, 224, 72, 0.855));
+}
+.component h2{
+  text-align: center;
+}
+.component p{
+  text-align: center;
+  padding: 10px;
+}
+.components{
+  padding: 25px;
+  gap: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.components div{
+  gap: 20px;
+  padding: 100px;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
+.comp{
+  border-radius: 20px;
+}
+.comp img{
+  height:250px;
+}
+.feature{
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-color: white;
+  background-image: linear-gradient(rgba(255, 224, 72, 0.855),white);
+}
+.auto{
+  padding: 10px;
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 80px;
+  letter-spacing: 3px;
+  align-items: center;
+  justify-content: center;
+}
+.auto p{
+padding: 20px;
+}
+.auto h3{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.points{
+  gap: 40px;
+  display: flex;
+}
+.points div{
+  background-color: white;
+  align-items: center;
+  
+}
+.points div img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.feature{
+  padding: 60px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(255, 224, 72, 0.855), white);
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap into the next row */
+  justify-content: center; /* Centers the items horizontally */
+  gap: 20px;
+}
+.feature div {
+  flex: 1 1 calc(33.33% - 20px); /* Three items per row on desktop */
+  min-width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid gray;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.feature div h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+.feature div div{
+  align-items: right;
+  border: 1px solid gray;
+  border-radius: 20px;
+
+}
+.feature div p {
+    font-size: 1rem;
+  color: #777;
+  text-align: center;
+}
+.feature div div p {
+  padding: 50px;
+  background-color: white;
+  text-align: center;
+  gap: 10px;
+}
+.feature img {
+    max-width: 100%;
+  height: auto;
+  max-height: 200px; /* Set a maximum height for images to prevent them from becoming too large */
+  border-radius: 10px;
+}
+.Benefits{
+  padding: 80px;
+  background-color: white;
+  gap: 10px;
+}
+.Benefits div{
+  display: flex;
+  padding: 50px;
+}
+.contents{
+  padding: 50px;
+  justify-content: center;
+  background-color: white;
+  gap: 20px;
+}
+.title{
+  border: 1px solid gray;
+  border-radius: 100px;
+  margin-bottom:50px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 5vw;
+  text-align: center;
+  align-items: center;
+}
+.Benefits div title h2{
+  padding: 20px;
+  background-color: white;
+  letter-spacing: 10px;
+}
+.future{
+  padding: 50px 150px 10px 150px;
+  background-color: white;
+}
+.future h2{
+  margin-bottom: 50px;
+}
+.future div{
+  padding: 50px 50px 50px 50px;
+  background-color: white;
+  gap: 100px;
+  display: flex;
+}
+.future div p{
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid gray;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.future div img{
+  height: 300px;
+  border-radius: 20px;
+}
+.footer {
+  background: #d3fc6d;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 14px;
+}
+.footer-column {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.footer-column a {
+  display: block;
+  color: #339cff;
+  text-decoration: none;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+.footer-column a:hover {
+  color: #287bb5;
+}
+.anis{
+    width: 400px;
+}
+.copyright {
+  text-align: center;
+  background-color: #74f863;
+  padding: 10px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header {
+    height: 50vh;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .feature {
+    padding: 40px 10px;
+    gap: 15px;
+  }
+  .Results .results-grid {
+    flex-direction: column;
+    align-items: center;
     }
-    nav a:hover {
-      color: white;
-      text-decoration: none;
+  .feature div {
+    padding: 15px;
+    width: 100%;
+    max-width: 90%;
+    gap: 10px;
+  }
+  .feature div h3 {
+    font-size: 1.1rem;
+  }
+  .feature div p {
+    font-size: 0.9rem;
+  }
+  .feature img {
+    max-height: 150px; /* Reduce the image size on mobile */
+  }
+  .system {
+    padding: 10px;
+ }
+ .diagrams {
+    flex: 1 1 100%;
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+ }
+    .feature, .auto {
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
     }
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 40px;
-      font-weight: bold;
-      color: white;
-      font-size: 24px;
-      /*backdrop-filter: blur(2px); /* blur effect */
-    }
-    .hero h1 {
-      font-size: 60px; /* Increased size for the header */
-      font-weight: 600; /* Bold weight for impact */
-      margin-bottom: 10px;
-      backdrop-filter: blur(4px); /* blur effect */
-      border-radius: 20px;
-    }
-    .hero p {
-      font-size: 30px; /* Slightly bigger and easier to read */
-      font-weight: 400; /* Regular weight for the subheading */
-      margin-bottom: 20px;
-      color: white;
-      max-width: 600px; /* Limit the width for better text readability */
-      margin-left: auto;
-      margin-right: auto;
-      backdrop-filter: blur(2px); /* blur effect */
-      padding: 10px;
-      border-radius: 20px;
-      text-shadow: 2px 2px black;
-    }
-    .buttons button {
-      padding: 0.625rem 1.25rem;
-      margin: 0 0.625rem;
-      border: 0.125rem solid #fff;
-      background: #339cff;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .buttons button:hover {
-        background-color: #287bb5;
-        transform: translateY(-0.125rem);
-    }
-    .buttons button:last-child {
-        background: transparent;
-        border: 0.125rem solid #fff;
-    }
-    .buttons button:last-child:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        border: 0.125rem solid #fff;
-    }
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      background: white;
-    }
-    .section h2 {
-      letter-spacing: 0.125rem;
-      color: #444;
-      margin-bottom: 0.625rem;
-    }
-    .section p {
-      color: #aaa;
-      margin-bottom: 2.5rem;
-    }
-    .section ul {
-        text-align: left;
-        text-decoration: none;
-    }
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 1.875rem;
-      flex-wrap: wrap;
-    }
-    .card {
-      width: 100%;
-      max-width: 20rem;
-      padding: 1.75rem;
-      border: 2px solid #eee;
-      border-radius: 0.375rem;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-0.3125rem);
-    }
-    .card-icon {
-      font-size: 2rem;
-      display: flex;
-      height: 250px;
-      margin-bottom: 1.25rem;
-      color: #339cff;
-      margin-right: 20px;
-      align-items: center;/*center vertically*/
-      justify-content: center;/*center horizontally*/
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .card h3 {
-      font-size: 1rem;
-      letter-spacing: 0.0625rem;
-      margin-bottom: 0.625rem;
-    }
-    .card p {
-      font-size: 0.875remx;
-      color: #777;
-    }
-    .tabs {
-      padding: 3.75rem 20px;
-      text-align: center;
-    }
-    .tabs h2 {
-      letter-spacing: 2px;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .tabs p {
-      color: #aaa;
-      margin-bottom: 20px;
-    }
-    .tab-buttons button {
-      margin: 0 5px;
-      padding: 10px 15px;
-      border: none;
-      background-color: #ccc;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .tab-buttons button.active {
-      background-color: #339cff;
-    }
-    .tab-buttons button:hover {
-      background-color: #287bb5;
-    }
-    .tab-content img {
-      max-width: 100%;
-      height: auto;
-      margin: 30px 0;
-    }
-    .tab-content h3 {
-      margin-bottom: 10px;
-    }
-    .footer {
-      background: #edf0f3;
-      padding: 40px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      font-size: 14px;
-    }
-    .footer-column {
-      flex: 1 1 200px;
-      margin: 10px;
-    }
-    .footer-column h4 {
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-    .footer-column a {
-      display: block;
-      color: #339cff;
-      text-decoration: none;
-      margin-bottom: 5px;
-      transition: color 0.3s ease;
-    }
-    .footer-column a:hover {
-      color: #287bb5;
-    }
-    .copyright {
-      text-align: center;
-      background-color: #edf0f3;
-      padding: 10px;
-      font-size: 12px;
-      color: #777;
+  .hero h1 {
+    font-size: 32px; /* Slightly smaller for mobile */
+  }
+  .hero p {
+    font-size: 16px; /* Adjust text size for mobile */
+  }
+  .buttons button {
+    padding: 8px 16px;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card{
+    max-width: 90%;
+    flex: 1 1 100%;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-column {
+    text-align: center;
+  }
+  .systems, .components, .objectives, .future div {
+    gap: 20px;
+  }
+  .points{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .points{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .components div, .future div img, .diagrams img {
+    width: 100%;
+    height: auto;
+  }
+
+  .feature, .future {
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .feature div div p {
+    padding: 20px;
+  }
+  .components,
+  .systems,
+  .objectives,
+  .future,
+  .feature {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .components div,
+  .feature div,
+  .future div {
+    width: 100%;
+  }
+  .feature div p {
+    padding: 10px;
+  }
+    .components {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     }
 
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      header {
-        height: 50vh;
-      }
-      .hero h1 {
-        font-size: 32px; /* Slightly smaller for mobile */
-      }
-      .hero p {
-        font-size: 16px; /* Adjust text size for mobile */
-      }
-      .buttons button {
-        padding: 8px 16px;
-      }
-      .cards {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .footer {
-        flex-direction: column;
-        align-items: center;
-      }
-      .footer-column {
-        text-align: center;
-      }
+    .comp {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 80%;
     }
+
+    .comp img {
+    height: auto;
+    width: 80%;
+    max-height: 250px;
+    margin-bottom: 15px;
+    }
+
+    .feature div {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    }
+
+    .feature img {
+    width: 100%;
+    height: auto;
+    }
+}
   </style>
 </head>
+
+
 <body>
+
   <header>
     <div class="logo">VOLTAPOINT</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Contact</a>
+    <nav aria-label="Main navigation">
+        <ul style="list-style: none; display: flex; gap: 10px;">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
     <div class="hero">
       <h1>THIS IS VOLTAPOINT</h1>
@@ -260,24 +673,25 @@
     </div>
   </header>
 
+
   <section class="section">
     <h2>INTRODUCTION</h2>
     <p>What our project is about</p>
     <div class="cards">
       <div class="card">
         <div class="card-icon"><img src="https://images.unsplash.com/photo-1623136299195-570a06bdae6b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="greenhouse" style="max-width: 100%; max-height: 100%; object-fit: cover;"></div>
-        <h3>What is Greenhouse?</h3>
+        <h2>What is Greenhouse?</h2>
         <p>A greenhouse is a structure with a plastic, mesh, polycarbonate roof and its interior heated/ventilated together with natural sunlight to warm / cool the plants, soil, and other plants inside the building</p>
       </div>
       <div class="card">
         <div class="card-icon"><img src="https://images.unsplash.com/uploads/1411901100260f56b39b9/ab70b250?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="greenhouse"style="max-width: 100%; max-height: 100%; object-fit: cover;"></div>
-        <h3>Definition of Smart Green House</h3>
+        <h2>Definition of Smart Green House</h2>
         <p>A smart greenhouse is a greenhouse that uses automative and sensors to monitor and control the environment for growing crops</p>
         <p>The goal is to create an ideal growing condition for the plants.</p>
       </div>
       <div class="card">
         <div class="card-icon"><img src="https://images.unsplash.com/photo-1508857650881-64475119d798?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="greenhouse" style="max-width: 100%; max-height: 100%; object-fit: cover;"></div>
-        <h3>Problem Statement</h3>
+        <h2>Problem Statement</h2>
             <ul class="list">
                 <p>🌱 Challenges in Traditional Greenhouse Management</p>
                 <p>🌱 Limitations of Traditional Greenhouse Systems</p>
@@ -287,44 +701,200 @@
     </div>
   </section>
 
-  <section class="tabs">
-    <h2>TAB SECTION</h2>
-    <p>THIS IS SOME TEXT INSIDE OF A DIV BLOCK.</p>
-    <div class="tab-buttons">
-      <button class="active">TAB BUTTON 1</button>
-      <button>TAB BUTTON 2</button>
-      <button>TAB BUTTON 3</button>
+
+  <section class="objectives">
+    <div class="objective">
+        <h2>OBJECTIVE</h2>
+        <p>Our objective</p>
+        <img src="" alt="">
     </div>
-    <div class="tab-content">
-      <img src="https://images.unsplash.com/photo-1441716844725-09cedc13a4e7?auto=format&fit=crop&w=1350&q=80" alt="Man looking at lake" />
-      <h3>Some Title Here</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-      <p>Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-      <p>Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+    <div class="detail">
+        <div class="details">
+            <p>To develop a smart greenhosue system that utilize IoT technolgy to automate and optimize environmental conditions for plant growth</p>
+        </div>
+        <div class="details">
+            <p>To monitor key environmental parameters such as soil moisture, air humidity, temperature, light intensity, and pH levels using sensors integrated with a Rasberry Pi Pico W microcontroller</p>
+        </div>
+        <div class="details">
+            <p>To design an automated irrigation system that activates pumps based on soil moisture levels and temperature conditions, ensuring efficient water usage</p>
+        </div>
     </div>
   </section>
+
+
+  <section class="system">
+    <h2>Our Smart Greenhouse and Automatic Irrigation System</h2>
+    <div class="systems">
+        <div class="diagrams">
+            <h3>Schematic Design</h3>
+            <img src="schematics (1).png" alt="">
+        </div>
+        <div class="diagrams">
+            <h3>Block Diagram</h3>
+            <img src="Block Diagram.png" alt="">
+        </div>
+        <div class="diagrams">
+            <h3>System Diagram</h3>
+            <img src="System.png" alt="">
+        </div>
+        <div class="diagrams">
+            <h3>System on breadboard</h3>
+            <img src="system of breadboard.png" alt="">
+        </div>
+        <div class="diagrams">
+            <h3>System on Circuit Board</h3>
+            <img src="circiuit board.png" alt="">
+        </div>
+    </div>
+  </section>
+
+  <section class="component">
+    <h2>System Component</h2>
+    <p>Our components</p>
+    <div class="components">
+
+        <div class="comp">
+            <img src="https://raspberry.piaustralia.com.au/cdn/shop/products/LB_RaspberryPiPicoW-1_1.png?v=1660819389" alt="">
+            <h3>Rasbery Pi Pico W</h3>
+        </div>
+        <div class="comp">
+            <img src="https://smartbitbn.com/wp-content/uploads/2023/02/20230202_191826-scaled.jpg" alt="">
+            <h3>Rain Sensor</h3>
+        </div >
+        <div class="comp">
+            <img src="https://esphome.io/_images/aht10-full.jpg" alt="">
+            <h3>AHT10 Sensor</h3>
+        </div>
+        <div class="comp">
+            <img src="https://my.sz-kuongshun.com/Content/upload/201884835/201809101807183452776.png" alt="">
+            <h3>Soil Moisture Sensor</h3>
+        </div>
+        <div class="comp">
+            <img src="https://cdn1.npcdn.net/images/1520307846d5859b778c7036fa36a3ca60dbe71984.jpg?md5id=88f5117f17105532ce02ca3f132c6628&new_width=1000&new_height=1000&w=-62170009200" alt="">
+            <h3>LDR Sensor</h3>
+        </div>
+        <div class="comp">
+            <img src="https://files.seeedstudio.com/wiki/Grove-PH_Sensor_kit/IMG/04.png" alt="">
+            <h3>pH sensor</h3>
+        </div>
+
+    </div>
+  </section>
+
+
+  <section class="feature">
+    <div class="auto">
+        <h2>Automatic Features</h2>
+        <p>Project awesome features</p>
+    </div>
+    <div class="points">
+        <div>
+            <img src="https://plus.unsplash.com/premium_photo-1661875241767-7a587c5b9718?q=80&w=2105&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <p>Irrigation System: Two 12V pumps; one for cooling during high temperatures, another for watering dry soil</p>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1652463349034-85793fa26b7e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <p>Ventilation control: A servo motor operates a natural ventilation window, closing it during rain</p>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1646839493423-c72703f9be81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <p>Shading System: A static shade net protects plant from excessive sunlight.</p>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="Results">
+    <h2>Results</h2>
+    <p>Our Results</p>
+    <div class="results-grid">
+        <div >
+            <img src="gambar2.jpg" alt="">
+            <p>Prototype</p>
+        </div>
+        <div>
+            <img src="system (2).png" alt="">
+            <p>System</p>
+        </div>
+    </div>
+  </section>
+
+  <Section class="video">
+    <div class="moments">
+        <h2>Videos</h2>
+        <p>Our project moments</p>
+    </div>
+    <div class="videos">
+        <div>
+            <video width="400" height="auto" controls>
+                <source src="video1.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+              </video>
+        </div>
+        <div>
+            <video width="400" height="auto" controls>
+                <source src="video2.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+              </video>
+        </div>
+        <div>
+            <video width="400" height="auto" controls>
+                <source src="video3.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+              </video>
+        </div>
+        
+    </div>
+  </Section>
+
+  <section class="Benefits">
+    <div>
+        <div class="title">
+            <h2>Benefit & Impact</h2>
+        </div>
+        <div class="contents">
+            <div class="content">
+                <p>Able to optimized plant growth through precise environmental control</p>
+            </div>
+            <div class="content">
+                Able to reduced water Usage compared to manual irrigation
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <Section class="future">
+    <h2>Future Enhancement development</h2>
+    <div>
+        <p>Future enhancement may include aquaponics integration, automated shading, cooling pads for improved temperature regulation, and expand renewable energy source</p>
+        <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D " alt="">
+    </div>
+  </Section>
 
   <section class="section">
     <h2>MEET THE TEAM</h2>
     <p>Our amazing team members</p>
     <div class="cards">
       <div class="card">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" style="width:100%; border-radius: 8px;">
+        <img src="IMG_6183.JPG" alt="Team Member" style="width:100%; border-radius: 8px;">
         <h3>Adam Farid Hadi</h3>
         <p>UiTM Cawangan Sarawak</p>
       </div>
       <div class="card">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" style="width:100%; border-radius: 8px;">
+        <img src="IMG_6206.JPG" alt="Team Member" style="width:100%; border-radius: 8px;">
         <h3>Axel Bendindang</h3>
         <p>UiTM Cawangan Sarawak</p>
       </div>
       <div class="card">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Team Member" style="width:100%; border-radius: 8px;">
+        <img src="IMG_6186.JPG" alt="Team Member" style="width:100%; border-radius: 8px;">
         <h3>Anantojo Mendan</h3>
         <p>UiTM Cawangan Sarawak</p>
       </div>
       <div class="card">
-        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Team Member" style="width:100%; border-radius: 8px;">
+        <img src="anis.jpg" alt="Team Member" style="width:100%; border-radius: 8px;">
         <h3>Miss Anis</h3>
         <p>UiTM Cawangan Sarawak</p>
       </div>
@@ -333,7 +903,7 @@
 
   <footer class="footer">
     <div class="footer-column">
-      <h4>ABOUT VELOCITY</h4>
+      <h4>ABOUT VOLTAPOINT</h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
     </div>
     <div class="footer-column">
@@ -354,21 +924,11 @@
   </footer>
 
   <div class="copyright">
-    &copy; 2025 Velocity. All rights reserved.
+    &copy; 2025 Voltapoint. All rights reserved.
   </div>
 
   <script>
-    // Tab interaction
-    const tabs = document.querySelectorAll('.tab-buttons button');
-    const tabContent = document.querySelector('.tab-content');
     
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        // You can update tabContent here based on index if you have different content for each tab
-      });
-    });
   </script>
 </body>
 </html>
